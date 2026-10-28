@@ -1,0 +1,33 @@
+/* css styles */
+.navbar {
+  background-color: #a3cef1;
+}
+.navbar .dropdown-menu { /*aligns the dropdown menu to the right so that it doesn't fall off the page */
+  right: 0 !important;
+  left: auto !important;
+}
+
+.info-box {
+  border: 1px solid #e7ecef;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #a3cef1;
+}
+.info-box:hover{
+  filter: drop-shadow(5px 5px 10px #8b8c89);
+}
+.info-box h3 {
+  margin-top: 0;
+  color: #6096ba;
+}
+
+#forthequiz
+.quiz-q { margin: 1.2em 0; }
+  .quiz-opts button {
+    margin-right: .4em; padding: .3em .8em;
+    border: 1px solid #ccc; border-radius: 4px;
+    background: #fff; cursor: pointer;
+  }
+  .quiz-opts button.selected { background: #2c6e91; color: #fff; border-color: #2c6e91; }
+  #quiz-result { margin-top: 1.5em; padding: 1em; border-left: 4px solid #2c6e91; background: #f6f8fa; }
