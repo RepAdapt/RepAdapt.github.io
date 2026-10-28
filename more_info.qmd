@@ -1,0 +1,47 @@
+---
+title: "Additional Info"
+---
+
+Even distantly related species encounter similar ecological challenges, from climate change to ocean acidification. **When presented with the same biological problem, do different species adapt via similar genetic solutions, or does each species evolve a novel response?1,2** As the answer depends critically on the interplay between ecology and genetics3–6, exploring this question will inform our understanding of the universal processes of evolution at a fundamental level. Charting the genetic basis of adaptation also has wide ranging applications, from identifying novel targets for functional genomics in medicine and crop breeding7 to improving conservation management to anticipate climate change8.
+
+Answering this fundamental and longstanding question requires studying many species exposed to the same stress (e.g., climatic variation) and asking how often the same genes recurrently underlie adaptation across lineages. However, progress has been limited in scope: studies of many species commonly examine only a single individual from each (i.e. phylogenetic methods9), whereas studies of many individuals commonly focus on only a single species (i.e. population genomics10). Both approaches miss key signals9,10. Now, new methods and the dramatic growth of genomic datasets enable the simultaneous comparison of many individuals across many species. Recent applications of these methods reveal repeated involvement of specific genes in driving adaptation to climate, even across distantly related species separated by \>100M years of evolution11–13. Enabled by new methods developed by our team members14,15, our initial analysis of 25 species found that the spatial patterning of selection influences which genes are repeatedly involved in adaptation across species16,17, consistent with theoretical predictions5. These results show that repeated adaptation is detectable across deep evolutionary timescales, opening a new frontier of scientific inquiry.
+
+Our vision is to push back this frontier, providing unprecedented insights into how adaptation works by making comparisons across hundreds of thousands of individuals from hundreds of species of plants, animals, and fungi. Our systematic cross-species comparisons of genomic responses – unprecedented in breadth – will let us test a wide range of hypotheses about adaptation. This approach will reveal how evolutionary processes interact to shape the architecture of adaptation, and how outcomes vary with phylogenetic grouping, genomic properties, or the type of ecological stress. We envision that an understanding of general principles in ecology and evolution will arise from this coordinated synthesis of datasets across taxa and environments – an effort that requires international, interdisciplinary collaboration.
+
+The RepAdapt working group was formed in September 2024 to tackle this problem, with \>100 scientists from 18 countries contributing \>300 species datasets with \>112,000 individual sequenced samples (Figure 1). The group has developed a set of shared, open bioinformatic workflows (github.com/RepAdapt) and are re-analyzing their datasets using this unified framework. Over the next 5 years, contingent on securing funding, the RepAdapt project will: A) expand and process all suitable species datasets; B) quantify repeatability across species by comparing genomic signatures of adaptation at multiple phylogenetic scales; C) test evolutionary hypotheses about why repeated adaptation varies (as per 5,18,19), and explore the importance of factors such as phylogenetic distance20, pleiotropy21, structural variants22, and the contribution of coding vs. regulatory regions23,24; and D) contextualize what we learn about repeated adaptation by quantifying the proportion of adaptation that is non-repeated using focused studies in several model species, linking genotype, phenotype, and fitness with additional sequencing of existing samples from reciprocal transplant experiments and Genome-Wide Association Studies (GWAS).
+
+Interested in contributing? Get information on dataset eligibility [here](support.qmd)
+
+::: {.callout-note collapse="true"}
+## References
+
+1.     	Stern, D. L. The genetic causes of convergent evolution. Nat Rev Genet 14, 751–764 (2013).
+2.     	Gould, S. J. Wonderful Life: The Burgess Shale and the Nature of History. (W. W. Norton, New York London, 1989).
+3.     	Johnson, T. & Barton, N. Theoretical models of selection and mutation on quantitative traits. Phil. Trans. R. Soc. B 360, 1411–1425 (2005).
+4.     	Barghi, N., Hermisson, J. & Schlötterer, C. Polygenic adaptation: a unifying framework to understand positive selection. Nat Rev Genet 21, 769–781 (2020).
+5.     	Yeaman, S. Evolution of polygenic traits under global vs local adaptation. Genetics 220, iyab134 (2022).
+6.     	Sakamoto, T., Whiting, J. R. & Yeaman, S. Mutation potentiates migration swamping in polygenic local adaptation. GENETICS iyae165 (2024) doi:10.1093/genetics/iyae165.
+7.     	Yeaman, S. Can wild plant adaptations help crops tolerate heat? Science 388, 1148–1150 (2025).
+8.     	Kreiner, J. M. The genetic architecture and spatiotemporal dynamics of adaptation across human‐modified landscapes. New Phytologist nph.70520 (2025) doi:10.1111/nph.70520.
+9.     	Sackton, T. B. Studying Natural Selection in the Era of Ubiquitous Genomes. Trends in Genetics 36, 792–803 (2020).
+10.   	Hoban, S. et al. Finding the Genomic Basis of Local Adaptation: Pitfalls, Practical Solutions, and Future Directions. The American Naturalist 188, 379–397 (2016).
+11.   	Yeaman, S. et al. Convergent local adaptation to climate in distantly related conifers. Science 353, 1431–1433 (2016).
+12.   	Bohutínská, M. et al. Genomic basis of parallel adaptation varies with divergence in Arabidopsis and its relatives. Proc. Natl. Acad. Sci. U.S.A. 118, e2022713118 (2021).
+13.   	Soudi, S. et al. Repeatability of adaptation in sunflowers reveals that genomic regions harbouring inversions also drive adaptation in species lacking an inversion. eLife 12, RP88604 (2023).
+14.   	Booker, T. R., Yeaman, S., Whiting, J. R. & Whitlock, M. C. The WZA : A window‐based method for characterizing genotype–environment associations. Molecular Ecology Resources 24, e13768 (2024).
+15.   	Booker, T. R., Yeaman, S. & Whitlock, M. C. Using genome scans to identify genes used repeatedly for adaptation. Evolution 77, 801–811 (2023).
+16.   	Nocchi, G., Whiting, J. R. & Yeaman, S. Repeated global adaptation across plant species. Proc. Natl. Acad. Sci. U.S.A. 121, e2406832121 (2024).
+17.   	Whiting, J. R. et al. The genetic architecture of repeated local adaptation to climate in distantly related plants. Nat Ecol Evol 8, 1933–1947 (2024).
+18.   	Sella, G. & Barton, N. H. Thinking About the Evolution of Complex Traits in the Era of Genome-Wide Association Studies. Annu. Rev. Genom. Hum. Genet. 20, 461–493 (2019).
+19.   	Lynch, M. et al. Genetic drift, selection and the evolution of the mutation rate. Nat Rev Genet 17, 704–714 (2016).
+20.   	Bohutínská, M. & Peichel, C. L. Divergence time shapes gene reuse during repeated adaptation. Trends in Ecology & Evolution 39, 396–407 (2024).
+21.   	Battlay, P., Yeaman, S. & Hodgins, K. A. Impacts of pleiotropy and migration on repeated genetic adaptation. GENETICS 228, iyae111 (2024).
+22.   	Wellenreuther, M. & Bernatchez, L. Eco-Evolutionary Genomics of Chromosomal Inversions. Trends in Ecology & Evolution 33, 427–440 (2018).
+23.   	Hoekstra, H. E. & Coyne, J. A. THE LOCUS OF EVOLUTION: EVO DEVO AND THE GENETICS OF ADAPTATION: THE LOCUS OF EVOLUTION. Evolution 61, 995–1016 (2007).
+24.   	Carroll, S. B. Evolution at Two Levels: On Genes and Form. PLoS Biol 3, e245 (2005).
+25.   	Emms, D. M. & Kelly, S. OrthoFinder: phylogenetic orthology inference for comparative genomics. Genome Biol 20, 238 (2019).
+26.   	Mérot, C., Oomen, R. A., Tigano, A. & Wellenreuther, M. A Roadmap for Understanding the Evolutionary Significance of Structural Genomic Variation. Trends in Ecology & Evolution 35, 561–572 (2020).
+27.   	Bradburd, G. S., Coop, G. M. & Ralph, P. L. Inferring Continuous and Discrete Population Genetic Structure Across Space. Genetics 210, 33–52 (2018).
+28.   	Ascanio, A., Bracken, J. T., Stevens, M. H. H. & Jezkova, T. New theoretical and analytical framework for quantifying and classifying ecological niche differentiation. Ecological Monographs 94, e1622 (2024).
+:::
+

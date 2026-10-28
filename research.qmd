@@ -1,0 +1,111 @@
+---
+title: "Publications"
+  
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r setup}
+library(googlesheets4)
+SHEET_URL <- "https://docs.google.com/spreadsheets/d/11ohYu5XI8AJg5SPGZ9uhTCIbN72xWNtAaBPW6RhuHzY/edit?gid=1621800203#gid=1621800203"
+
+##LOADING IN DATA
+gs4_deauth()
+
+pubs <- tryCatch(
+  read_sheet(SHEET_URL, skip = 1),
+  error = function(e) {
+    message("Could not load sheet\n", e$message)
+    NULL
+  }
+)
+
+pubs$year <- as.numeric(pubs$year)
+
+```
+
+# 2026
+
+```{r results='asis', echo=FALSE}
+pubs2026 <- subset(pubs, pubs$year == 2026)
+
+if(nrow(pubs2026) != 0){
+for (i in 1:(nrow(pubs2026))) {
+  row <- pubs2026[i, ]
+  
+  cat('::: {.info-box}\n\n')
+   cat(sprintf('## [%s](%s), %s, %s\n\n',
+                row$title, row$url, row$authors, row$year))
+    cat('<details>\n')
+  cat('<summary>Abstract</summary>\n\n')
+  cat(row$abstract, '\n\n')
+  cat('</details>\n\n')
+  cat(':::\n\n')
+}
+}
+```
+
+# 2025
+
+```{r results='asis', echo=FALSE}
+pubs2025 <- subset(pubs, pubs$year == 2025)
+
+if(nrow(pubs2025) != 0){
+for (i in 1:(nrow(pubs2025))) {
+  row <- pubs2025[i, ]
+  
+  cat('::: {.info-box}\n\n')
+   cat(sprintf('## [%s](%s), %s, %s\n\n',
+                row$title, row$url, row$authors, row$year))
+    cat('<details>\n')
+  cat('<summary>Abstract</summary>\n\n')
+  cat(row$abstract, '\n\n')
+  cat('</details>\n\n')
+  cat(':::\n\n')
+}
+}
+```
+
+# 2024
+
+```{r results='asis', echo=FALSE}
+pubs2024 <- subset(pubs, pubs$year == 2024)
+
+if(nrow(pubs2024) != 0){
+for (i in 1:(nrow(pubs2024))) {
+  row <- pubs2024[i, ]
+  
+  cat('::: {.info-box}\n\n')
+   cat(sprintf('## [%s](%s), %s, %s\n\n',
+                row$title, row$url, row$authors, row$year))
+    cat('<details>\n')
+  cat('<summary>Abstract</summary>\n\n')
+  cat(row$abstract, '\n\n')
+  cat('</details>\n\n')
+  cat(':::\n\n')
+}
+}
+```
+
+# 2023
+
+```{r results='asis', echo=FALSE}
+pubs2023 <- subset(pubs, pubs$year == 2023)
+
+if(nrow(pubs2023) != 0){
+for (i in 1:(nrow(pubs2023))) {
+  row <- pubs2023[i, ]
+  
+  cat('::: {.info-box}\n\n')
+   cat(sprintf('## [%s](%s), %s, %s\n\n',
+                row$title, row$url, row$authors, row$year))
+    cat('<details>\n')
+  cat('<summary>Abstract</summary>\n\n')
+  cat(row$abstract, '\n\n')
+  cat('</details>\n\n')
+  cat(':::\n\n')
+}
+}
+```

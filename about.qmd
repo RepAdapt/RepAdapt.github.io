@@ -1,0 +1,75 @@
+---
+title: "About"
+
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+# Collaborators
+
+```{r setup}
+library(googlesheets4)
+SHEET_URL <- "https://docs.google.com/spreadsheets/d/1Dp-nPNbnPlmQO6wBTQGJjjBxrBYUhpCzCdMcC0PJceY/edit?gid=0#gid=0"
+
+##LOADING IN DATA
+gs4_deauth()
+
+people <- tryCatch(
+  read_sheet(SHEET_URL),
+  error = function(e) {
+    message("Could not load sheet. Using sample data instead.\n", e$message)
+    NULL
+  }
+)
+
+```
+
+```{r}
+library(DT)
+
+datatable(
+  people,
+  filter = "top",        # adds column filter boxes
+  options = list(
+    pageLength = 10,      # 10 entries per page
+    lengthChange = FALSE  # hides the "show X entries" dropdown, optional
+  )
+)
+```
+
+```{r}
+library(ggplot2)
+library(maps)
+
+# World map as a plain data.frame (for polygons)
+world_map <- map_data("world")
+
+data("world.cities")
+
+# Your data
+df <- data.frame(city = people$City,
+                 country = people$Country)
+
+df <- merge(
+  df,
+  world.cities[, c("name", "country.etc", "lat", "long")],
+  by.x = c("city", "country"),
+  by.y = c("name", "country.etc"),
+  all.x = TRUE
+)
+names(df)[names(df) == "long"] <- "lon"
+
+df <- na.omit(df)
+
+# Plot
+ggplot() +
+  geom_polygon(data = world_map, aes(x = long, y = lat, group = group),
+               fill = "grey95", color = "grey80", linewidth = 0.2) +
+  geom_point(data = df, aes(x = lon, y = lat, colour = country),
+              size = 2) +
+  coord_fixed(xlim = c(-140, 40), ylim = c(-40, 70), ratio = 1.3) +
+  theme_minimal() +
+  theme(axis.title = element_blank())
+```

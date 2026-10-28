@@ -1,0 +1,35 @@
+project:
+  type: website
+
+website:
+  title: "RepAdapt"
+  navbar:
+    search: FALSE
+    tools:
+      - icon: github
+        menu:
+          - text: RepAdapt Pipeline
+            href: https://github.com/GabrieleNocchi/nextflow_snp_calling_computecanada
+          - text: Report A Bug
+            href: bug.qmd
+          
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Publications
+        href: research.qmd
+      - text: Results
+        href: results.qmd
+      - text: Collaborators
+        href: about.qmd
+      - text: Contribute 
+        href: support.qmd
+
+format:
+  html:
+    css: styles.css
+    toc: true
+    toc-location: right
+
+editor: visual
+

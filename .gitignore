@@ -1,0 +1,8 @@
+/.quarto/
+/_site/
+.Rproj.user/
+.Rhistory
+.RData
+.DS_Store
+planning_results_paragraph.docx
+things_i_might_need.R

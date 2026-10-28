@@ -1,0 +1,90 @@
+---
+title: "How to contribute data"
+---
+
+Please contact Sam Yeaman ([samuel.yeaman\@ucalgary.ca](mailto:samuel.yeaman@ucalgary.ca)) for detailed instructions on contributing.
+
+## Do you have a dataset that you think might contribute to the RepAdapt group?
+
+Take this quick quiz to see if it fits our inclusion criteria!
+
+```{=html}
+<div id="quiz"></div>
+<button id="quiz-submit">See my result</button>
+<div id="quiz-result"></div>
+
+<script>
+// ---- 1. Your questions ----
+const QUESTIONS = [
+  { id: "q1", text: "Are your species sampled from the wild (or agricultural context), or from captivity if originally collected in the wild with a known location of origin?", type: "yesno" },
+  { id: "q2", text: "Does your dataset include at least 20 individuals with low relatedness and have a high quality reference genome (chromosome scale scaffolds, or nearly that scale)?",      type: "yesno" },
+  { id: "q3", text: "Does your datasets include at total of at least 100 individuals from at least 5 populations spanning an environmental gradient.",
+    type: "yesno" },
+  { id: "q4", text: "Is your sequencing method one of the following:  Whole Genome Shotgun (WGS) sequencing, pooled population sequencing, or targeted sequencing of the exome?",       type: "yesno" },
+  { id: "q5", text: "Is your coverage >3x?", type: "yesno"},
+  
+  // ...up to q10
+];
+
+// ---- 2. Where answers get stored ----
+const answers = {};
+
+// ---- 3. Build the questions on the page ----
+const container = document.getElementById("quiz");
+
+QUESTIONS.forEach((q, i) => {
+  const opts = (q.type === "yesno") ? ["Yes", "No"] : q.options;
+
+  const block = document.createElement("div");
+  block.className = "quiz-q";
+  block.innerHTML = "<p><strong>" + (i + 1) + ".</strong> " + q.text + "</p>";
+
+  const row = document.createElement("div");
+  row.className = "quiz-opts";
+
+  opts.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = opt;
+    btn.addEventListener("click", () => {
+      answers[q.id] = opt;
+      row.querySelectorAll("button").forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+    });
+    row.appendChild(btn);
+  });
+
+  block.appendChild(row);
+  container.appendChild(block);
+});
+
+// ---- 4. Decide the final message ----
+function resultMessage(a) {
+  const missing = QUESTIONS.filter(q => !(q.id in a)).length;
+  if (missing > 0) {
+    return "Please answer all " + QUESTIONS.length + " questions (" + missing + " left).";
+  }
+
+  // Specific answers that override everything else, checked first:
+  if (a.q1 === "No")        return "You're not eligible: The species must be wild.";
+  if (a.q2 === "No" && a.q3 === "No" || a.q4 === "No") return "You're not eligible.";
+  if (a.q2 === "Yes" && a.q3 === "Yes" && a.q5 === "No") return "You're data is eligible for analysis of selective sweeps or genotype-environment associations using the low coverage pipeline! Email Sam Yeaman at samuel.yeaman@ucalgary.ca for further instructions.";
+  if (a.q2 === "Yes" && a.q3 === "Yes" && a.q5 === "Yes") return "You're data is eligible for analysis of selective sweeps or genotype-environment associations using the conventional pipeline! Email Sam Yeaman at samuel.yeaman@ucalgary.ca for further instructions.";
+  
+  if (a.q1 === "Yes" && a.q2 === "Yes" && a.q3 === "No" && a.q4 === "Yes" && a.q5 === "Yes") return "You're data is eligible for analysis of selective sweeps using the conventional pipeline! Email Sam Yeaman at samuel.yeaman@ucalgary.ca for further instructions."; 
+  if (a.q1 === "Yes" && a.q2 === "Yes" && a.q3 === "No" && a.q4 === "Yes" && a.q5 === "No") return "You're data is eligible for analysis of selective sweeps using the low coverage pipeline! Email Sam Yeaman at samuel.yeaman@ucalgary.ca for further instructions.";
+  
+  if (a.q1 === "Yes" && a.q2 === "No" && a.q3 === "Yes" && a.q4 === "Yes" && a.q5 === "Yes") return "You're data is eligible for analysis of genotype-environment associations using the conventional pipeline! Email Sam Yeaman at samuel.yeaman@ucalgary.ca for further instructions.";
+  if (a.q1 === "Yes" && a.q2 === "No" && a.q3 === "Yes" && a.q4 === "Yes" && a.q5 === "No") return "You're data is eligible for analysis of genotype-environment associations using the low coverage pipeline! Email Sam Yeaman at samuel.yeaman@ucalgary.ca for further instructions.";
+  
+  // Otherwise fall back to a count of "Yes" answers:
+  const yesCount = Object.values(a).filter(v => v === "Yes").length;
+  
+}
+
+// ---- 5. Wire up the button ----
+document.getElementById("quiz-submit").addEventListener("click", () => {
+  document.getElementById("quiz-result").textContent = resultMessage(answers);
+});
+</script>
+```
