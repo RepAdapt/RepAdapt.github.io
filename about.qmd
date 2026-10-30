@@ -11,13 +11,13 @@ execute:
 
 ```{r setup}
 library(googlesheets4)
-SHEET_URL <- "https://docs.google.com/spreadsheets/d/1Dp-nPNbnPlmQO6wBTQGJjjBxrBYUhpCzCdMcC0PJceY/edit?gid=0#gid=0"
+SHEET_URL <- "https://docs.google.com/spreadsheets/d/1Jr28SWvfVt52pT1lqpfqIQyylyFrzn-NuHGBmX9D-0g/edit?gid=1930128407#gid=1930128407"
 
 ##LOADING IN DATA
 gs4_deauth()
 
 people <- tryCatch(
-  read_sheet(SHEET_URL),
+  read_sheet(SHEET_URL, sheet = "working group members", col_names = TRUE, col_types = "c-cc"),
   error = function(e) {
     message("Could not load sheet. Using sample data instead.\n", e$message)
     NULL
